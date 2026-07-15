@@ -2,8 +2,7 @@
 
 > A full-stack digital banking application deployed on AWS with a Flask backend on EC2, RDS MySQL database in a private subnet, and an Application Load Balancer with SSL termination — implementing defense-in-depth security across a custom VPC architecture.
 
-**Live Site:** [novo.codeandcloud.site](https://novo.codeandcloud.site)  
-**GitHub:** [github.com/xxx/novopay-aws](https://github.com/xxx/novopay-aws)
+**Live Site:** [novo.codeandcloud.site](https://novo.codeandcloud.site)
 
 ---
 
@@ -22,21 +21,6 @@ The project demonstrates real-world cloud infrastructure practices — custom VP
 ## Architecture
 
 ![Architecture Diagram](screenshots/architecture.png)
-
-```
-User Browser
-     ↓ HTTPS (novo.codeandcloud.site)
-Hostinger DNS → CNAME → Application Load Balancer
-     ↓ SSL termination (ACM certificate)
-     ↓ HTTP redirect to HTTPS
-novopay-vpc (10.0.0.0/16)
-     ↓
-Public Subnet (10.0.1.0/24)
-└── EC2 — Flask app (systemd service)
-         ↓ SQL queries port 3306
-Private Subnets (10.0.2.0/24 + 10.0.3.0/24)
-└── RDS MySQL — no public access
-```
 
 ---
 
@@ -216,6 +200,7 @@ sudo systemctl status novopay
 
 **Application Load Balancer**
 ![ALB](screenshots/alb.png)
+![ALB](screenshots/alb_listeners.png)
 
 **Target Group — Healthy**
 ![Target Group](screenshots/target_group.png)
@@ -242,6 +227,12 @@ sudo systemctl status novopay
 **Transfer Money**
 ![Transfer](screenshots/transfer.png)
 
+**Request Loan**
+![Loan](screenshots/loan.png)
+
+**Successful Transactions**
+![Transactions](screenshots/successful_transactions.png)
+
 ---
 
 ## Key Architecture Decisions
@@ -265,4 +256,4 @@ Hardcoding database credentials in source code is a critical security risk — a
 
 ## Author
 
-**Thejus** — [GitHub](https://github.com/xxx) | [LinkedIn](https://linkedin.com/in/xxx)
+**Geethu P R** — [GitHub](https://github.com/geeth34/) | [LinkedIn](https://linkedin.com/in/geethupr/)
